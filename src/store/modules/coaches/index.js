@@ -13,7 +13,7 @@ export default {
                     id: 'c1',
                     firstName: "omama",
                     lastName: 'int',
-                    areas: ['fe', 'be', 'db', 'mb'],
+                    areas: ['frontend', 'backend', 'database', 'cloud'],
                     description: 'Hello I am Coach 1',
                     hourlyRate: 30,
                 },
@@ -21,8 +21,8 @@ export default {
                     id: 'c2',
                     firstName: "maqrij",
                     lastName: 'int' ,
-                    areas: ['fe', 'be', 'db', 'mb', 'civil'],
-                    description: 'Hello I am Coach 1',
+                    areas: ['frontend', 'backend', 'database'],
+                    description: 'Hello I am Coach 2',
                     hourlyRate: 40,
                 }
             ]
