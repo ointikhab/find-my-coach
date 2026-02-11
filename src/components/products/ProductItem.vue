@@ -10,7 +10,9 @@
         Add to Cart
       </button>
 
-      <button class="delete" @click.stop="deleteProduct">
+      <button 
+      data-test="delete-btn"
+      class="delete" @click.stop="deleteProduct">
         Delete
       </button>
     </div>

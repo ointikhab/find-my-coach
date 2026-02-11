@@ -6,7 +6,6 @@
         v-for="product in productList"
         :key="product.id"
         :product="product"
-        @add-to-cart="$emit('add-to-cart', $event)"
       />
     </div>
   </section>

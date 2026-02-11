@@ -15,4 +15,10 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
+  // 👇 ADD THIS
+  test: {
+    environment: 'jsdom',
+    globals: true,
+    include: ['tests/unit/**/*.spec.js'],
+  },
 })
