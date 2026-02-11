@@ -1,10 +1,10 @@
 <template>
     <header>
-        <router-link to="/"> Find a Coach</router-link>
+        <router-link to="/"> Products Home</router-link>
         <ul>
             <li>
-                <router-link to="/coaches"> All Coaches</router-link>
-                <router-link to="/requests">Requests</router-link>
+                <router-link to="/products">Products</router-link>
+                <router-link to="/add-product">Add New Product</router-link>
             </li>
         </ul>
     </header>

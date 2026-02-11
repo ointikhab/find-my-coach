@@ -1,7 +1,4 @@
 export default {
-    registerCoach(state, payload){
-      state.coaches.push(payload)
-    },
     setProducts(state, payload){
       state.products = payload
     },
