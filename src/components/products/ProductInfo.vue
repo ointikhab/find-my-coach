@@ -1,6 +1,7 @@
 <template>
   <div class="info">
     <h1>{{ product.title }}</h1>
+    <button class="update-btn" @click="updateTitle">Update Title</button>
     <p class="category">{{ product.category }} - {{ product.brand }}</p>
     <p class="price">$ {{ product?.price?.toFixed(2) }}
       <span v-if="product.discountPercentage">({{ product.discountPercentage }}% off)</span>
@@ -29,6 +30,17 @@ export default {
       if (status.includes('out')) return 'out-stock'
       return 'in-stock'
     }
+  },
+  methods: {
+    updateTitle(){
+        const dateStr  = new Date().toISOString()
+        const updatedData = {
+            id: this.product.id,
+            title: `${this.product.title}_${dateStr}`
+        }
+        console.log('updating the data', updatedData)
+        this.$store.dispatch('products/updateProduct', updatedData)
+    }
   }
 }
 </script>
@@ -50,6 +62,16 @@ export default {
 .availability.out-stock { color: red; }
 
 .buy-btn {
+  background-color: #3490dc;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.update-btn {
   background-color: #3490dc;
   color: white;
   border: none;

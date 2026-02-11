@@ -68,6 +68,30 @@ export default {
 
   // Optimistically add product to store
   context.commit('addProduct', responseData)
+},
+
+async updateProduct(context, productData) { 
+  const response = await fetch(
+    `https://dummyjson.com/products/${productData.id}`,
+    {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(productData)
+    }
+  )
+
+  if (!response.ok) {
+    console.log('error while updating product')
+    return
+  }
+
+  const responseData = await response.json()
+  console.log('updated product:', responseData)
+
+  // Optimistically add product to store
+  context.commit('updateProduct', responseData)
 }
 
 }

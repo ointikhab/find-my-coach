@@ -10,5 +10,11 @@ export default {
     },
     addProduct(state, product) {
     state.products.unshift(product)
+    },
+    updateProduct(state, updatedProductValues) {
+    state.productDetails = {
+      ...state.productDetails,
+      ...updatedProductValues,
+    }
     }
 }

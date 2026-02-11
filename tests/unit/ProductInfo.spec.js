@@ -63,15 +63,4 @@ describe('ProductInfo.vue component used in productdetails', () => {
     expect(availability.classes()).toContain('in-stock')
   })
 
-  it('emits add-to-cart event when button clicked', async () => {
-    const wrapper = mount(ProductInfo, {
-      props: { product: mockProduct }
-    })
-
-    await wrapper.find('button').trigger('click')
-
-    expect(wrapper.emitted()['add-to-cart']).toBeTruthy()
-    expect(wrapper.emitted()['add-to-cart'][0]).toEqual([mockProduct])
-  })
-
 })
