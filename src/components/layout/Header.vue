@@ -5,10 +5,23 @@
             <li>
                 <router-link to="/products">Products</router-link>
                 <router-link to="/add-product">Add New Product</router-link>
+                <router-link v-if="isAuthenticated" to="/admin">Admin Page</router-link>
+                <router-link v-if="isAuthenticated" to="/logout">logout</router-link>
+                <router-link v-else to="/login">Login</router-link>
+
             </li>
         </ul>
     </header>
 </template>
+
+<script>
+import { mapGetters } from 'vuex'
+export default {
+  computed: {
+    ...mapGetters('auth', ['isAuthenticated'])
+  }
+}
+</script>
 
 <style scoped>
 header {
