@@ -9,6 +9,9 @@ import BaseCard from '../src/components/base/BaseCard.vue'
 import BaseButton from '../src/components/base/BaseButton.vue'
 import BaseBadge from '../src/components/base/BaseBadge.vue'
 
+
+store.dispatch('auth/autoLogin')
+
 const app = createApp(App);
 
 app.use(router);
