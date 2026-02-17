@@ -39,7 +39,6 @@ export default {
       this.$store.dispatch('products/loadProductDetails', this.$route.params.id)
     },
     addToCart(product) {
-      console.log('Adding to cart:', product)
       this.$emit('add-to-cart', product)
     }
   },

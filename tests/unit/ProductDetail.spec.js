@@ -88,4 +88,34 @@ describe('ProductDetail.vue', () => {
 
     expect(wrapper.text()).toContain('Loading product details...')
   })
+
+
+  it('emits add-to-cart when ProductInfo emits event', async () => {
+  const wrapper = mount(ProductDetail, {
+    global: {
+      plugins: [store, router],
+      stubs: {
+        ProductImages: true,
+        ProductReviews: true,
+        ProductInfo: {
+          name: 'ProductInfo',   // ⭐ IMPORTANT
+          template: '<div />'
+        }
+      }
+    }
+  })
+
+  const product = { id: 99 }
+
+  const child = wrapper.findComponent({ name: 'ProductInfo' })
+
+  child.vm.$emit('add-to-cart', product)
+
+  await wrapper.vm.$nextTick()
+
+  expect(wrapper.emitted('add-to-cart')).toBeTruthy()
+  expect(wrapper.emitted('add-to-cart')[0]).toEqual([product])
+})
+
+  
 })

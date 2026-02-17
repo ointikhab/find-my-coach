@@ -79,4 +79,23 @@ describe('ProductItem.vue', () => {
 
   })
 
+  it('navigates to product detail when card clicked', async () => {
+    const push = vi.fn()
+
+    const wrapper = mount(ProductItem, {
+      props: { product },
+      global: {
+        mocks: {
+          $router: { push }
+        }
+      }
+    })
+
+    // click the card container
+    await wrapper.find('.product-card').trigger('click')
+
+    expect(push).toHaveBeenCalledWith('/products/1')
+  })
+
 })
+
